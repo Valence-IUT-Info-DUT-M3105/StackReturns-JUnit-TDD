@@ -8,7 +8,7 @@ public class StackOfNonNegativeIntegersTest
 {
 	@Test
 	public void creatingANewStackWithNoCapacityAsParameterShouldReturnAnEmptyStackWithDefaultCapacity()
-	{		
+	{
 		StackOfNonNegativeIntegers stackUnderTest = new StackOfNonNegativeIntegers();
 		assertEquals(stackUnderTest.getSize(), 0);
 		assertEquals(stackUnderTest.getCapacity(), StackOfNonNegativeIntegers.DEFAULT_CAPACITY);
@@ -16,17 +16,16 @@ public class StackOfNonNegativeIntegersTest
 
 	@Test
 	public void creatingANewStackWithCapacityAsParameterShouldReturnAnEmptyStackWithGivenCapacity()
-	{		
+	{
 		int capacity = 7;
 		StackOfNonNegativeIntegers stackUnderTest = new StackOfNonNegativeIntegers(capacity);
 		assertEquals(stackUnderTest.getSize(), 0);
 		assertEquals(stackUnderTest.getCapacity(), capacity);
 	}
-	
 
 	@Test
 	public void callingPopOnAnEmptyStackShouldRaiseEmptyStackException()
-	{		
+	{
 		StackOfNonNegativeIntegers stackUnderTest = new StackOfNonNegativeIntegers();
 		try
 		{
@@ -39,10 +38,10 @@ public class StackOfNonNegativeIntegersTest
 		}
 		fail("EmptyStackException expected");
 	}
-	
+
 	@Test
 	public void callingPushWithANegativeIntegerOnANonFullStackShouldRaiseNegativeIntegerException()
-	{		
+	{
 		StackOfNonNegativeIntegers stackUnderTest = new StackOfNonNegativeIntegers();
 		try
 		{
@@ -55,10 +54,10 @@ public class StackOfNonNegativeIntegersTest
 		}
 		fail("NegativeIntegerException expected");
 	}
-	
+
 	@Test
 	public void callingPushWithANonNegativeIntegerOnANonFullStackIncreasesStackSize()
-	{		
+	{
 		StackOfNonNegativeIntegers stackUnderTest = new StackOfNonNegativeIntegers();
 		try
 		{
@@ -68,13 +67,13 @@ public class StackOfNonNegativeIntegersTest
 		{
 			fail("Unexpected exception");
 		}
-		
+
 		assertEquals(stackUnderTest.getSize(), 1);
 	}
-	
+
 	@Test
 	public void callingViewOnAnEmptyStackShouldRaiseEmptyStackException()
-	{		
+	{
 		StackOfNonNegativeIntegers stackUnderTest = new StackOfNonNegativeIntegers();
 		try
 		{
@@ -87,10 +86,10 @@ public class StackOfNonNegativeIntegersTest
 		}
 		fail("EmptyStackException expected");
 	}
-	
+
 	@Test
 	public void callingPushWithANonNegativeElementOnANonFullStackAndThenCallingPopShouldLetSizeUnchangedAndReturnElement()
-	{		
+	{
 		StackOfNonNegativeIntegers stackUnderTest = new StackOfNonNegativeIntegers();
 		try
 		{
@@ -104,10 +103,10 @@ public class StackOfNonNegativeIntegersTest
 			fail("Unexpected exception");
 		}
 	}
-	
+
 	@Test
 	public void callingPushWithANonNegativeElementOnANonFullStackAndThenCallingViewShouldIncreaseSizeAndReturnElement()
-	{		
+	{
 		StackOfNonNegativeIntegers stackUnderTest = new StackOfNonNegativeIntegers();
 		try
 		{
@@ -124,7 +123,7 @@ public class StackOfNonNegativeIntegersTest
 
 	@Test
 	public void callingPopSeveralTimesAfterCallingPushSeveralTimesOnANonFullStackShouldReturnElementsInReverseOrder()
-	{		
+	{
 		StackOfNonNegativeIntegers stackUnderTest = new StackOfNonNegativeIntegers();
 		try
 		{
@@ -145,5 +144,37 @@ public class StackOfNonNegativeIntegersTest
 			fail("Unexpected exception");
 		}
 	}
-	
+
+	@Test
+	public void callingPushWithANonNegativeIntegerOnAFullStackShouldRaiseFullStackException()
+	{
+		StackOfNonNegativeIntegers stackUnderTest = new StackOfNonNegativeIntegers(1);
+
+		int value41 = 41;
+		int value42 = 42;
+		try
+		{
+			stackUnderTest.push(value41);
+		}
+		catch (Exception e)
+		{
+			fail("Unexpected exception");
+		}
+		
+		try
+		{
+			stackUnderTest.push(value42);
+		}
+		catch (NegativeIntegerException e)
+		{
+			fail("Unexpected exception");
+		}
+		catch (FullStackException e)
+		{
+			assertEquals(stackUnderTest.getSize(), 1);
+			return;
+		}
+		fail("FullStackException expected");	
+	}
+
 }
