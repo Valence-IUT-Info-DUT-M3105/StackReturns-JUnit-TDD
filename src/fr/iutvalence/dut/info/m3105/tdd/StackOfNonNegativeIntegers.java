@@ -25,4 +25,9 @@ public class StackOfNonNegativeIntegers
 	{
 		return this.capacity;
 	}
+
+	public void pop() throws EmptyStackException
+	{
+		throw new EmptyStackException();
+	}
 }
