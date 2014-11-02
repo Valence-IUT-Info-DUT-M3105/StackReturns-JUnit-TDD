@@ -55,4 +55,20 @@ public class StackOfNonNegativeIntegersTest
 		}
 		fail("NegativeIntegerException expected");
 	}
+	
+	@Test
+	public void callingPushWithANonNegativeIntegerOnANonFullStackIncreasesStackSize()
+	{		
+		StackOfNonNegativeIntegers stackUnderTest = new StackOfNonNegativeIntegers();
+		try
+		{
+			stackUnderTest.push(42);
+		}
+		catch (NegativeIntegerException e)
+		{
+			fail("Unexpected exception");
+		}
+		
+		assertEquals(stackUnderTest.getSize(), 1);
+	}
 }
