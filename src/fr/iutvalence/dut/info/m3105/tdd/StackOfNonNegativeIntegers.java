@@ -46,9 +46,12 @@ public class StackOfNonNegativeIntegers
 		this.size -= 1;		
 	}
 
-	public void view() throws EmptyStackException
+	public int view() throws EmptyStackException
 	{
-		throw new EmptyStackException();
+		if (this.size == 0) 
+			throw new EmptyStackException();
+		
+		return this.topOfStack;
 	}
 
 	public void push(int element) throws NegativeIntegerException
