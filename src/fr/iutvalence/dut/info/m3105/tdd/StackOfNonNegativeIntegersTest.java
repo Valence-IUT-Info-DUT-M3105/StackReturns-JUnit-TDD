@@ -22,4 +22,21 @@ public class StackOfNonNegativeIntegersTest
 		assertEquals(stackUnderTest.getSize(), 0);
 		assertEquals(stackUnderTest.getCapacity(), capacity);
 	}
+	
+
+	@Test
+	public void callingPopOnAnEmptyStackShouldRaiseEmptyStackException()
+	{		
+		StackOfNonNegativeIntegers stackUnderTest = new StackOfNonNegativeIntegers();
+		try
+		{
+			stackUnderTest.pop();
+		}
+		catch (EmptyStackException e)
+		{
+			assertEquals(stackUnderTest.getSize(), 0);
+			return;
+		}
+		fail("EmptyStackException expected");
+	}
 }
