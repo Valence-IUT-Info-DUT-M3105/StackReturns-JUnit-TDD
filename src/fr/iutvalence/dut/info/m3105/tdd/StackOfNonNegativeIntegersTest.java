@@ -39,4 +39,20 @@ public class StackOfNonNegativeIntegersTest
 		}
 		fail("EmptyStackException expected");
 	}
+	
+	@Test
+	public void callingPushWithANegativeIntegerOnANonFullStackShouldRaiseNegativeIntegerException()
+	{		
+		StackOfNonNegativeIntegers stackUnderTest = new StackOfNonNegativeIntegers();
+		try
+		{
+			stackUnderTest.push(-42);
+		}
+		catch (NegativeIntegerException e)
+		{
+			assertEquals(stackUnderTest.getSize(), 0);
+			return;
+		}
+		fail("NegativeIntegerException expected");
+	}
 }
