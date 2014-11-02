@@ -6,19 +6,23 @@ public class StackOfNonNegativeIntegers
 	
 	private final int capacity;
 
+	private int size;
+
 	public StackOfNonNegativeIntegers()
 	{
 		this.capacity = DEFAULT_CAPACITY;
+		this.size = 0;
 	}
 	
 	public StackOfNonNegativeIntegers(int capacity)
 	{
 		this.capacity = capacity;
+		this.size = 0;
 	}
 	
 	public int getSize()
 	{
-		return 0;
+		return this.size;
 	}
 
 	public int getCapacity()
@@ -33,6 +37,9 @@ public class StackOfNonNegativeIntegers
 
 	public void push(int element) throws NegativeIntegerException
 	{
-		throw new NegativeIntegerException();
+		if (element < 0)
+			throw new NegativeIntegerException();
+	
+		this.size += 1;
 	}
 }
