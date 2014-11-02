@@ -61,12 +61,18 @@ public class StackOfNonNegativeIntegers
 		return this.elements[this.size-1];
 	}
 
-	public void push(int element) throws NegativeIntegerException
+	public void push(int element) throws NegativeIntegerException, FullStackException
 	{
 		raiseExceptionIfElementIsNegative(element);
+		raiseExceptionIfStackIsFull();
 		
 		this.elements[this.size] = element;
 		incrementSize();
+	}
+
+	private void raiseExceptionIfStackIsFull() throws FullStackException
+	{
+		if (this.size == this.capacity) throw new FullStackException();	
 	}
 
 	private void incrementSize()

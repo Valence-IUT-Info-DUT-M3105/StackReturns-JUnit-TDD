@@ -52,6 +52,9 @@ public class StackOfNonNegativeIntegersTest
 			assertEquals(stackUnderTest.getSize(), 0);
 			return;
 		}
+		catch (FullStackException e)
+		{
+		}
 		fail("NegativeIntegerException expected");
 	}
 
@@ -63,11 +66,10 @@ public class StackOfNonNegativeIntegersTest
 		{
 			stackUnderTest.push(42);
 		}
-		catch (NegativeIntegerException e)
+		catch (Exception e)
 		{
 			fail("Unexpected exception");
 		}
-
 		assertEquals(stackUnderTest.getSize(), 1);
 	}
 
