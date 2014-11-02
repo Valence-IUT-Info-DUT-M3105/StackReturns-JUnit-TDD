@@ -71,4 +71,20 @@ public class StackOfNonNegativeIntegersTest
 		
 		assertEquals(stackUnderTest.getSize(), 1);
 	}
+	
+	@Test
+	public void callingViewOnAnEmptyStackShouldRaiseEmptyStackException()
+	{		
+		StackOfNonNegativeIntegers stackUnderTest = new StackOfNonNegativeIntegers();
+		try
+		{
+			stackUnderTest.view();
+		}
+		catch (EmptyStackException e)
+		{
+			assertEquals(stackUnderTest.getSize(), 0);
+			return;
+		}
+		fail("EmptyStackException expected");
+	}
 }
