@@ -30,4 +30,9 @@ public class StackOfNonNegativeIntegers
 	{
 		throw new EmptyStackException();
 	}
+
+	public void push(int element) throws NegativeIntegerException
+	{
+		throw new NegativeIntegerException();
+	}
 }
