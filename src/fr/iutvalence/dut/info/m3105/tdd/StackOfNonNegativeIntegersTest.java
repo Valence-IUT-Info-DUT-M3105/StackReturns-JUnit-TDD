@@ -89,7 +89,7 @@ public class StackOfNonNegativeIntegersTest
 	}
 	
 	@Test
-	public void callingPushwithANonNegativeElementOnANonFullStackAndThenCallingPopShouldLetSizeUnchangedAndReturnElement()
+	public void callingPushWithANonNegativeElementOnANonFullStackAndThenCallingPopShouldLetSizeUnchangedAndReturnElement()
 	{		
 		StackOfNonNegativeIntegers stackUnderTest = new StackOfNonNegativeIntegers();
 		try
@@ -106,7 +106,7 @@ public class StackOfNonNegativeIntegersTest
 	}
 	
 	@Test
-	public void callingPushwithANonNegativeElementOnANonFullStackAndThenCallingViewShouldIncreaseSizeAndReturnElement()
+	public void callingPushWithANonNegativeElementOnANonFullStackAndThenCallingViewShouldIncreaseSizeAndReturnElement()
 	{		
 		StackOfNonNegativeIntegers stackUnderTest = new StackOfNonNegativeIntegers();
 		try
@@ -121,4 +121,29 @@ public class StackOfNonNegativeIntegersTest
 			fail("Unexpected exception");
 		}
 	}
+
+	@Test
+	public void callingPopSeveralTimesAfterCallingPushSeveralTimesOnANonFullStackShouldReturnElementsInReverseOrder()
+	{		
+		StackOfNonNegativeIntegers stackUnderTest = new StackOfNonNegativeIntegers();
+		try
+		{
+			int value41 = 41;
+			int value42 = 42;
+			int value43 = 43;
+			stackUnderTest.push(value41);
+			stackUnderTest.push(value42);
+			stackUnderTest.push(value43);
+			assertEquals(stackUnderTest.getSize(), 3);
+			assertEquals(stackUnderTest.pop(), value43);
+			assertEquals(stackUnderTest.pop(), value42);
+			assertEquals(stackUnderTest.pop(), value41);
+			assertEquals(stackUnderTest.getSize(), 0);
+		}
+		catch (Exception e)
+		{
+			fail("Unexpected exception");
+		}
+	}
+	
 }
