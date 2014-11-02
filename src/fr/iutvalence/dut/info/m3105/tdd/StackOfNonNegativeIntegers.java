@@ -34,11 +34,17 @@ public class StackOfNonNegativeIntegers
 
 	public int pop() throws EmptyStackException
 	{
-		if (this.size == 0) 
-			throw new EmptyStackException();
+		raiseExceptionIfstackIsEmpty();
 		
 		decrementSize();
+		
 		return this.topOfStack;
+	}
+
+	private void raiseExceptionIfstackIsEmpty() throws EmptyStackException
+	{
+		if (this.size == 0) 
+			throw new EmptyStackException();
 	}
 
 	private void decrementSize()
@@ -48,8 +54,7 @@ public class StackOfNonNegativeIntegers
 
 	public int view() throws EmptyStackException
 	{
-		if (this.size == 0) 
-			throw new EmptyStackException();
+		raiseExceptionIfstackIsEmpty();
 		
 		return this.topOfStack;
 	}
