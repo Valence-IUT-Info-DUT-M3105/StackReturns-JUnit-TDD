@@ -8,18 +8,20 @@ public class StackOfNonNegativeIntegers
 
 	private int size;
 	
-	private int topOfStack;
+	private int[] elements;
 
 	public StackOfNonNegativeIntegers()
 	{
 		this.capacity = DEFAULT_CAPACITY;
 		this.size = 0;
+		this.elements = new int[this.capacity];
 	}
 	
 	public StackOfNonNegativeIntegers(int capacity)
 	{
 		this.capacity = capacity;
 		this.size = 0;
+		this.elements = new int[this.capacity];
 	}
 	
 	public int getSize()
@@ -38,7 +40,7 @@ public class StackOfNonNegativeIntegers
 		
 		decrementSize();
 		
-		return this.topOfStack;
+		return this.elements[this.size];
 	}
 
 	private void raiseExceptionIfstackIsEmpty() throws EmptyStackException
@@ -56,14 +58,14 @@ public class StackOfNonNegativeIntegers
 	{
 		raiseExceptionIfstackIsEmpty();
 		
-		return this.topOfStack;
+		return this.elements[this.size-1];
 	}
 
 	public void push(int element) throws NegativeIntegerException
 	{
 		raiseExceptionIfElementIsNegative(element);
 		
-		this.topOfStack = element;
+		this.elements[this.size] = element;
 		incrementSize();
 	}
 
