@@ -104,4 +104,21 @@ public class StackOfNonNegativeIntegersTest
 			fail("Unexpected exception");
 		}
 	}
+	
+	@Test
+	public void callingPushwithANonNegativeElementOnANonFullStackAndThenCallingViewShouldIncreaseSizeAndReturnElement()
+	{		
+		StackOfNonNegativeIntegers stackUnderTest = new StackOfNonNegativeIntegers();
+		try
+		{
+			int value = 42;
+			stackUnderTest.push(value);
+			assertEquals(stackUnderTest.view(), value);
+			assertEquals(stackUnderTest.getSize(), 1);
+		}
+		catch (Exception e)
+		{
+			fail("Unexpected exception");
+		}
+	}
 }
