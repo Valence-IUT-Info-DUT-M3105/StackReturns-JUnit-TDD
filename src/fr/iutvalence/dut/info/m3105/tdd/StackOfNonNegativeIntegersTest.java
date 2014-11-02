@@ -87,4 +87,21 @@ public class StackOfNonNegativeIntegersTest
 		}
 		fail("EmptyStackException expected");
 	}
+	
+	@Test
+	public void callingPushwithANonNegativeElementOnANonFullStackAndThenCallingPopShouldLetSizeUnchangedAndReturnElement()
+	{		
+		StackOfNonNegativeIntegers stackUnderTest = new StackOfNonNegativeIntegers();
+		try
+		{
+			int value = 42;
+			stackUnderTest.push(value);
+			assertEquals(stackUnderTest.pop(), value);
+			assertEquals(stackUnderTest.getSize(), 0);
+		}
+		catch (Exception e)
+		{
+			fail("Unexpected exception");
+		}
+	}
 }
