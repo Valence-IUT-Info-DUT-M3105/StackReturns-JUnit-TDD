@@ -35,6 +35,11 @@ public class StackOfNonNegativeIntegers
 		throw new EmptyStackException();
 	}
 
+	public void view() throws EmptyStackException
+	{
+		throw new EmptyStackException();
+	}
+
 	public void push(int element) throws NegativeIntegerException
 	{
 		raiseExceptionIfElementIsNegative(element);
