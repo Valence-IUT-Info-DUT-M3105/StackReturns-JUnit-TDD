@@ -37,9 +37,19 @@ public class StackOfNonNegativeIntegers
 
 	public void push(int element) throws NegativeIntegerException
 	{
+		raiseExceptionIfElementIsNegative(element);
+		
+		incrementSize();
+	}
+
+	private void incrementSize()
+	{
+		this.size += 1;
+	}
+
+	private void raiseExceptionIfElementIsNegative(int element) throws NegativeIntegerException
+	{
 		if (element < 0)
 			throw new NegativeIntegerException();
-	
-		this.size += 1;
 	}
 }
