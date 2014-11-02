@@ -14,4 +14,12 @@ public class StackOfNonNegativeIntegersTest
 		assertEquals(stackUnderTest.getCapacity(), StackOfNonNegativeIntegers.DEFAULT_CAPACITY);
 	}
 
+	@Test
+	public void creatingANewStackWithCapacityAsParameterShouldReturnAnEmptyStackWithGivenCapacity()
+	{		
+		int capacity = 7;
+		StackOfNonNegativeIntegers stackUnderTest = new StackOfNonNegativeIntegers(capacity);
+		assertEquals(stackUnderTest.getSize(), 0);
+		assertEquals(stackUnderTest.getCapacity(), capacity);
+	}
 }
